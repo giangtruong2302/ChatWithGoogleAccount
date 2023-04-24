@@ -26,10 +26,10 @@ const page = async ({}) => {
       const lastMessage = lastMessageRaw
         ? (JSON.parse(lastMessageRaw) as Message)
         : {
-            id: "string",
-            senderId: "string",
-            receiverId: "string",
-            text: "string",
+            id: "_",
+            senderId: "no define",
+            receiverId: "no define",
+            text: "....",
             timestamp: 0,
           };
 
