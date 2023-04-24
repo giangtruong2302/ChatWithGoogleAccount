@@ -49,7 +49,7 @@ const page = async ({}) => {
         friendsWithLastMessage.map((friend) => (
           <div
             key={friend.id}
-            className="relative bg-zinc-50 border border-zinc-200 p-3 rounded-md"
+            className="relative bg-zinc-50 border border-zinc-200 p-3 rounded-md mt-3"
           >
             <div className="absolute right-4 inset-y-0 flex items-center">
               <ChevronRight className="h-7 w-7 text-zinc-400" />
