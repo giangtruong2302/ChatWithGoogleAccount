@@ -9,7 +9,6 @@ import { z } from "zod";
 
 export async function POST(req: Request) {
   try {
-    console.log("check req: ", req);
     const body = await req.json();
 
     const { email: emailToAdd } = addFriendValidator.parse(body.email);
@@ -18,13 +17,11 @@ export async function POST(req: Request) {
       "get",
       `user:email:${emailToAdd}`
     )) as string;
-    console.log("check to add: ", idToAdd);
     if (!idToAdd) {
       return new Response("This person does not exist.", { status: 400 });
     }
 
     const session = await getServerSession(authOptions);
-    console.log("check session: ", session);
     if (!session) {
       return new Response("Unauthorized", { status: 401 });
     }
@@ -58,7 +55,6 @@ export async function POST(req: Request) {
     }
 
     // valid request, send friend request
-    console.log("check session id: ", session.user);
     await pusherServer.trigger(
       toPusherKey(`user:${idToAdd}:incoming_friend_requests`),
       "incoming_friend_requests",
@@ -67,7 +63,6 @@ export async function POST(req: Request) {
         senderEmail: session.user.email,
       }
     );
-    console.log("check session id request: ", session.user.id);
     await db.sadd(`user:${idToAdd}:incoming_friend_requests`, session.user.id);
     return new Response("OK");
   } catch (error) {

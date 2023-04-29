@@ -22,7 +22,6 @@ const page = async ({}) => {
         -1,
         -1
       )) as string[];
-      console.log("check last msg: ", lastMessageRaw);
       const lastMessage = lastMessageRaw
         ? (JSON.parse(lastMessageRaw) as Message)
         : {
