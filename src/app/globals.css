@@ -4,7 +4,7 @@
 
 @layer base {
   container {
-    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
   }
 }
 
@@ -27,4 +27,10 @@
 
 .scrollbar-thumb-rounded::-webkit-scrollbar-thumb {
   border-radius: 0.25rem;
+}
+@layer base {
+  em-emoji-picker {
+    width: 300px;
+    max-height: 300px;
+  }
 }
