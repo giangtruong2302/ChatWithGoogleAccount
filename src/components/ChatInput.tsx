@@ -18,7 +18,7 @@ const ChatInput: FC<ChatInputProps> = ({ chatPartner, chatId }) => {
   const textareaRef = useRef<HTMLTextAreaElement | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [input, setInput] = useState<string>("");
-
+  const [icon, setIcon] = useState<string>("");
   const sendMessage = async () => {
     if (!input) return;
     setIsLoading(true);
@@ -63,7 +63,9 @@ const ChatInput: FC<ChatInputProps> = ({ chatPartner, chatId }) => {
           className="flex items-center space-x-2"
           onEmojiSelect={(emoji) => {
             // editor?.chain().insertContent(emoji.native).focus().run();
-            // console.log("check emoji: ", emoji);
+            // console.log("check emoji: ", emoji.native);
+            setIcon(emoji.native);
+            setInput(emoji.native);
             setEmojiOpen(false);
           }}
         />
