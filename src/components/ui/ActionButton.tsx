@@ -2,7 +2,7 @@ import Image from "next/image";
 import * as Emoji from "../EmojiPicker/EmojiPicker";
 import SmileLey from "../../../public/smiley.svg";
 import { useState } from "react";
-import { ReplyIcon } from "lucide-react";
+import { ReplyIcon, MoreHorizontal } from "lucide-react";
 
 const ActionReactMessage = () => {
   const [emojiOpen, setEmojiOpen] = useState(false);
@@ -28,6 +28,9 @@ const ActionReactMessage = () => {
             }}
           />
         </Emoji.Popover>
+      </div>
+      <div className="cursor-pointer">
+        <MoreHorizontal />
       </div>
     </div>
   );
